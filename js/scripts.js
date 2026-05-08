@@ -58,3 +58,4 @@ loadSection('projects', 'projects.html');
 loadSection('news', 'news.html');
 loadSection('publications', 'publications.html');
 loadSection('codes', 'codes.html');
+loadSection('resources', 'resources.html');
