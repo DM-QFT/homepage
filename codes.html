@@ -1,14 +1,51 @@
 <section class="resume-section" id="codes-section">
     <div class="resume-section-content">
-        <h2 class="mb-5">Codes &amp; Software</h2>
-        <p class="mb-4">The DM‑QFT Collaboration develops and maintains software for lattice simulations, generative models and data analysis. Our public codebases include:</p>
-        <ul>
-            <li class="mb-3">
-                <a href="https://github.com/DM-QFT/DMasSQ"><strong>DMasSQ</strong></a> &ndash; a self-contained notebook demonstrating diffusion models as stochastic quantization for scalar &phi;<sup>4</sup> lattice field theory.
-            </li>
-            <li>
-                <a href="https://github.com/DM-QFT/DM-for-phi4"><strong>DM-for-phi4</strong></a> &ndash; diffusion-model training, sampling and analysis for two- and three-dimensional scalar &phi;<sup>4</sup> lattice field theory.
-            </li>
-        </ul>
+        <h2 class="mb-4">Codes &amp; Software</h2>
+        <p class="mb-4">Open-source software from the DM‑QFT Collaboration for lattice field theory and generative diffusion models. Explore our research code below, or browse <a href="https://github.com/orgs/DM-QFT/repositories">all DM-QFT repositories on GitHub</a>.</p>
+
+        <article class="border rounded p-4 mb-4" id="code-dm-u2-lgt" aria-labelledby="code-dm-u2-lgt-title">
+            <h3 class="catalog-title mb-2" id="code-dm-u2-lgt-title"><a href="https://github.com/DM-QFT/DM_U2_LGT">DM_U2_LGT</a></h3>
+            <p class="small text-muted mb-2">Non-Abelian gauge theory · Python · Lattice gauge equivariant CNNs</p>
+            <p class="mb-3">Diffusion models for two-dimensional U(2) lattice gauge theory. Includes score-matching training, reverse-SDE and Metropolis-adjusted annealed Langevin (MAALA) sampling, an example trained network, and a notebook for generating configurations and evaluating observables.</p>
+            <p class="small mb-3">Companion code for <a href="#publication-2601-19552">Generalizable Equivariant Diffusion Models for Non-Abelian Lattice Gauge Theory</a>.</p>
+            <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-sm btn-outline-primary" href="https://github.com/DM-QFT/DM_U2_LGT">GitHub repository</a>
+                <a class="btn btn-sm btn-outline-primary" href="https://arxiv.org/abs/2601.19552">Paper · arXiv</a>
+                <a class="btn btn-sm btn-outline-primary" href="https://github.com/DM-QFT/DM_U2_LGT/blob/main/generate_and_evaluate.ipynb">Example notebook</a>
+            </div>
+        </article>
+
+        <article class="border rounded p-4 mb-4" id="code-dm-for-phi4" aria-labelledby="code-dm-for-phi4-title">
+            <h3 class="catalog-title mb-2" id="code-dm-for-phi4-title"><a href="https://github.com/DM-QFT/DM-for-phi4">DM-for-phi4</a></h3>
+            <p class="small text-muted mb-2">Scalar field theory · 2D and 3D · Python / PyTorch</p>
+            <p class="mb-3">Training, sampling and analysis for diffusion models in two- and three-dimensional scalar &phi;<sup>4</sup> lattice field theory, with code for studying critical sampling and generalization across lattice volumes.</p>
+            <p class="small mb-3">Companion code for <a href="#publication-2607-08505">Diffusion Models for Sampling Near Criticality in Lattice Field Theories</a>.</p>
+            <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-sm btn-outline-primary" href="https://github.com/DM-QFT/DM-for-phi4">GitHub repository</a>
+                <a class="btn btn-sm btn-outline-primary" href="https://arxiv.org/abs/2607.08505">Paper · arXiv</a>
+                <a class="btn btn-sm btn-outline-primary" href="https://github.com/DM-QFT/DM-for-phi4/tree/master/2Dphi4">2D code</a>
+                <a class="btn btn-sm btn-outline-primary" href="https://github.com/DM-QFT/DM-for-phi4/tree/master/3Dphi4">3D code</a>
+            </div>
+        </article>
+
+        <article class="border rounded p-4 mb-4" id="code-dmassq" aria-labelledby="code-dmassq-title">
+            <h3 class="catalog-title mb-2" id="code-dmassq-title"><a href="https://github.com/DM-QFT/DMasSQ">DMasSQ</a></h3>
+            <p class="small text-muted mb-2">Stochastic quantization · Jupyter notebook · PyTorch · MIT license</p>
+            <p class="mb-3">A self-contained notebook introducing diffusion models as stochastic quantization through two-dimensional scalar &phi;<sup>4</sup> lattice field theory. Run the example locally or in Google Colab.</p>
+            <p class="small mb-3">Companion code for <a href="#publication-2309-17082">Diffusion Models as Stochastic Quantization in Lattice Field Theory</a>.</p>
+            <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-sm btn-outline-primary" href="https://github.com/DM-QFT/DMasSQ">GitHub repository</a>
+                <a class="btn btn-sm btn-outline-primary" href="https://arxiv.org/abs/2309.17082">Paper · arXiv</a>
+                <a class="btn btn-sm btn-outline-primary" href="https://github.com/DM-QFT/DMasSQ/blob/main/DMasSQ_open.ipynb">Tutorial notebook</a>
+            </div>
+        </article>
+
+        <article class="border rounded p-4" id="code-homepage" aria-labelledby="code-homepage-title">
+            <h3 class="catalog-title mb-2" id="code-homepage-title"><a href="https://github.com/DM-QFT/homepage">homepage</a></h3>
+            <p class="small text-muted mb-2">Collaboration website · HTML / CSS / JavaScript</p>
+            <p class="mb-3">Source for this website, including our research overview, publications, member directory and software catalogue.</p>
+            <a class="btn btn-sm btn-outline-primary" href="https://github.com/DM-QFT/homepage">Website source</a>
+        </article>
+        <p class="small text-muted mt-3 mb-0">Repository catalogue updated <time datetime="2026-10-24">24 October 2026</time>.</p>
     </div>
 </section>

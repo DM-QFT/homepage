@@ -7,55 +7,78 @@
 // Scripts
 // 
 
-window.addEventListener('DOMContentLoaded', event => {
-
-    // Activate Bootstrap scrollspy on the main nav element
-    const sideNav = document.body.querySelector('#sideNav');
-    if (sideNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#sideNav',
-            rootMargin: '0px 0px -40%',
-        });
-    };
+window.addEventListener('DOMContentLoaded', async () => {
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
     );
-    responsiveNavItems.map(function (responsiveNavItem) {
+    responsiveNavItems.forEach(function (responsiveNavItem) {
         responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
+            const responsiveNav = document.getElementById('navbarResponsive');
+            if (navbarToggler && window.getComputedStyle(navbarToggler).display !== 'none'
+                && responsiveNav.classList.contains('show') && window.bootstrap?.Collapse) {
+                bootstrap.Collapse.getOrCreateInstance(responsiveNav).hide();
             }
         });
     });
 
+    // Wait for every fragment before measuring sections or following a deep link.
+    await Promise.all([
+        loadSection('members', 'members.html'),
+        loadSection('projects', 'projects.html'),
+        loadSection('news', 'news.html'),
+        loadSection('publications', 'publications.html'),
+        loadSection('codes', 'codes.html'),
+        loadSection('resources', 'resources.html'),
+    ]);
+
+    // Typeset once after loading; a MathJax failure must not block navigation.
+    try {
+        await window.MathJax?.startup?.promise;
+        if (window.MathJax?.typesetPromise) {
+            await window.MathJax.typesetPromise();
+        }
+    } catch (error) {
+        console.error('Error typesetting sections:', error);
+    }
+    if (document.fonts) {
+        await document.fonts.ready;
+    }
+
+    const sideNav = document.body.querySelector('#sideNav');
+    if (sideNav && window.bootstrap?.ScrollSpy) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '#sideNav',
+            rootMargin: '0px 0px -40%',
+        });
+    }
+
+    // Hash targets may have been empty or absent when the document first loaded.
+    let targetId = window.location.hash.slice(1);
+    try {
+        targetId = decodeURIComponent(targetId);
+    } catch (error) {
+        // Ignore malformed URL encoding and try the literal fragment instead.
+    }
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'instant' });
 });
 
-
-
 // Function to load external HTML content into a div
-function loadSection(sectionId, fileName) {
-    fetch(fileName)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(sectionId).innerHTML = data;
-
-            // Trigger MathJax reprocessing
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
-        })
-        .catch(error => console.error('Error loading section:', error));
+async function loadSection(sectionId, fileName) {
+    const section = document.getElementById(sectionId);
+    try {
+        const response = await fetch(fileName);
+        if (!response.ok) {
+            throw new Error(`${fileName}: HTTP ${response.status}`);
+        }
+        section.innerHTML = await response.text();
+    } catch (error) {
+        const message = document.createElement('p');
+        message.className = 'p-4';
+        message.textContent = 'This section could not be loaded. Please reload the page.';
+        section.replaceChildren(message);
+        console.error('Error loading section:', error);
+    }
 }
-
-
-// The pages load their sections from within index.html using explicit calls.
-// 加载不同的子页面
-loadSection('members', 'members.html');
-loadSection('projects', 'projects.html');
-loadSection('news', 'news.html');
-loadSection('publications', 'publications.html');
-loadSection('codes', 'codes.html');
-loadSection('resources', 'resources.html');
