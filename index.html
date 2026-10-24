@@ -7,7 +7,7 @@
     <meta name="description" content="DM‑QFT Collaboration" />
     <meta name="author" content="DM‑QFT Collaboration" />
     <title>DM‑QFT Collaboration</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <link rel="icon" type="image/png" href="assets/img/dm_qft_logo.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -18,34 +18,27 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/catalog.css" rel="stylesheet" />
     <!-- enable LaTeX-->
-    <script type="text/javascript" async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <!-- Brand shown on all screen sizes -->
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">
-                <div class="d-flex justify-content-between align-items-center w-100">
-                    <!-- Navbar toggler button for small screens -->
-                    <button class="navbar-toggler d-lg-none me-3" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <!-- Logo for small screens -->
-                    <div class="d-flex justify-content-end align-items-center">
-                        <img class="img-fluid p-1" src="assets/img/dm_qft_logo.png" alt="DM‑QFT Logo" style="width: 40px; height: 40px;" />
-                    </div>
-                </div>
-            </span>
-            <span class="d-none d-lg-block">
-                <div class="d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid p-3" src="assets/img/dm_qft_logo.png" alt="DM‑QFT Logo" style="max-width: 90%; height: auto;" />
-                </div>
-            </span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" aria-label="Main navigation">
+        <!-- Mobile menu and home link are separate interactive controls. -->
+        <div class="d-flex d-lg-none justify-content-between align-items-center w-100">
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand js-scroll-trigger me-0" href="#page-top" aria-label="DM-QFT home">
+                <img class="img-fluid p-1" src="assets/img/dm_qft_logo.png" alt="DM‑QFT Logo" width="40" height="40" />
+            </a>
+        </div>
+        <!-- Desktop sidebar logo -->
+        <a class="navbar-brand js-scroll-trigger d-none d-lg-flex align-items-center justify-content-center"
+            href="#page-top" aria-label="DM-QFT home">
+            <img class="img-fluid p-3" src="assets/img/dm_qft_logo.png" alt="DM‑QFT Logo" style="max-width: 90%; height: auto;" />
         </a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
